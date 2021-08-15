@@ -31,6 +31,10 @@
         </div>
         <div id="error_message" name="error_message">
             <?php
+            spl_autoload_register(function($class){
+                require_once ('library/'.$class.'.php');
+            });
+
                 if(isset($_POST['submit'])){
                     if(empty($_POST['email'])){
                         echo "Email address is required";
@@ -38,10 +42,14 @@
                         echo "Please provide a valid e-mail address";
                     }else if(empty($_POST['accept'])){
                         echo "You must accept the terms and conditions";
-                    }else if(str_contains($_POST['email'], '.co')){
+                    }else if(str_contains($_POST['email'], '.co ')){
                         echo "We are not accepting subscriptions from Colombia";
                     }else{
-                        header('Location: addEmail.php');
+                        $emailAddress = new EmailClass();
+                        $emailAddress->setAddress($_POST['email']);
+
+                        $emailAddress->insertEmail();
+                        header('Location: subscribe.php');
                     }
                 }
                 unset($_POST['email']);
