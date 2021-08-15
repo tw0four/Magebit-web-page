@@ -1,0 +1,631 @@
+body{
+    height:100%;
+}
+
+.base{
+    position: absolute;
+    height: 100%;
+    width:35%;
+    top:0;
+    left: 0;
+    background-color: #F2F5FA;
+    min-width: 600px;
+    min-height: 800px;
+}
+
+.image{
+    position: absolute;
+    height: 100%;
+    width: 65%;
+    top:0;
+    right: 0;
+    background: url("background_image/image_summer.png");
+    background-size: cover;
+    min-width: 50%;
+    z-index: -1;
+    min-height: 800px;
+}
+
+.top-bar{
+    position: absolute;
+    width: 80%;
+    height: 40px;
+    top: 10%;
+    left:15%;
+}
+
+.pineapple-icon{
+    display: inline-block;
+    position: absolute;
+    width: 118px;
+    height: 40px;
+    background-image: url("logo/logo_pineapple.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.links{
+    position: absolute;
+    right: 5%;
+    top:12px;
+}
+
+#about{
+    display: inline-block;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    color: #6A707B;
+    text-decoration: none;
+}
+#about:hover{
+    cursor: pointer;
+}
+
+#contact{
+    display: inline-block;
+    padding-left: 10px;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    color: #6A707B;
+    text-decoration: none;
+}
+#contact:hover{
+    cursor: pointer;
+}
+
+#how-it-works{
+    display: inline-block;
+    padding-left: 10px;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    color: #6A707B;
+    text-decoration: none;
+}
+#how-it-works:hover{
+    cursor: pointer;
+}
+
+
+
+.content{
+    position: absolute;
+    top:30%;
+    left:15%;
+    width: 70%;
+    height: 500px;
+}
+
+.title{
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 44px;
+    color: #131821;
+
+    position: absolute;
+    left: 10%;
+    top:0;
+}
+
+.sub-title{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: #6A707B;
+
+    word-wrap: break-word;
+    position: absolute;
+    top:15%;
+    left: 10%;
+
+}
+
+#email{
+    position: absolute;
+    width: 145%;
+    height: 70px;
+    background: #FFFFFF;
+    border: 1px solid #E3E3E4;
+    box-sizing: border-box;
+    border-left: 4px solid #4066A5;
+
+    font-family: Arial;
+    font-style: normal;;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #131821;
+
+    padding-left: 40px;
+    left:0;
+    top:35%;
+}
+#email:focus{
+    box-shadow: 0px 30px 40px rgba(19, 24, 33, 0.06);
+    outline: none;
+}
+#email:hover{
+    border: 1px solid #4066A5;
+    box-sizing: border-box;
+    box-shadow: 0px 30px 40px rgba(19, 24, 33, 0.06);
+    border-left: 4px solid #4066A5;
+}
+#email:hover ~ .icon-arrow{
+    background-image: url("icons/ic_arrow_hover.png");
+}
+#email::placeholder{
+    font-family: Arial;
+    font-style: normal;;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6A707B;
+}
+#email:hover::placeholder{
+    color: #131821;
+}
+
+.icon-arrow{
+    position: absolute;
+    background-image: url("icons/ic_arrow.png");
+    border: none;
+    background-color: transparent;
+    width: 24px;
+    height: 14px;
+    cursor: pointer;
+
+    top: 203px;
+    left: 130%;
+}
+.icon-arrow:hover{
+    background-image: url("icons/ic_arrow_hover.png");
+}
+
+#error_message{
+    position: absolute;
+    left: 10%;
+    top: 50%;
+
+    font-family: Arial;
+    font-style: normal;;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6A707B;
+}
+
+.TOS{
+    position: absolute;
+    height: 150px;
+    width: 80%;
+    left: 10%;
+    top:60%;
+
+}
+
+.container{
+    position: absolute;
+    top: 60%;
+    left: 5%;
+}
+
+.container input{
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 26px;
+    width: 26px;
+    background: #FFFFFF;
+    border: 1px solid #E3E3E4;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.container input:checked ~ .checkmark {
+    background: #4066A5;
+}
+
+.checkmark:after {
+    content: url("icons/ic_checkmark.png");
+    top: 4px;
+    left: 5px;
+    position: absolute;
+    display: none;
+}
+.checkmark:hover{
+    cursor:pointer;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+#agree{
+    display: inline-block;
+    position: absolute;
+    margin-left: 20px;
+    width: max-content;
+    top: -15px;
+}
+.i-agree-to{
+    display: inline-block;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+
+    color: #131821;
+    opacity: 0.5;
+}
+
+
+.terms {
+    display: inline-block;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+
+    text-decoration-line: underline;
+    color: #131821;
+}
+.terms:hover{
+    text-decoration-line: underline;
+    cursor: pointer;
+    color: #4066A5;
+}
+.terms:active{
+    text-decoration-line: underline;
+    color: #233759;
+}
+
+hr.line{
+    border: 1px solid #E3E3E4;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+}
+
+.social-networks{
+    position: absolute;
+    top: 85%;
+    left: 20%;
+    height: 46px;
+    width: 60%;
+}
+
+.facebook{
+    display: inline-block;
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    left: 0;
+
+    border: 2px solid #E3E3E4;
+    box-sizing: border-box;
+    border-radius: 100%;
+
+    content: "";
+    background: url("icons/ic_facebook.png");
+    background-repeat: no-repeat;
+    background-size: 8px 16px;
+    background-position: center;
+}
+.facebook:hover{
+    background-image: url("icons/ic_facebook_hover.png");
+    background-repeat: no-repeat;
+    background-size: 8px 16px;
+    background-position: center;
+
+    background-color: #4267B2;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+.facebook:active{
+    background-image: url("icons/ic_facebook_hover.png");
+    background-repeat: no-repeat;
+    background-size: 8px 16px;
+    background-position: center;
+
+    background-color: #2F4A80;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+
+.instagram{
+    display: inline-block;
+    position: absolute;
+    width: 46px;
+    height: 46px;
+
+    border: 2px solid #E3E3E4;
+    box-sizing: border-box;
+    border-radius: 100%;
+    left: 27%;
+
+    background: url("icons/ic_instagram.png");
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: center;
+}
+.instagram:hover{
+    background-image: url("icons/ic_instagram_hover.png");
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: center;
+
+    background-color: #C13584;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+.instagram:active{
+    background-image: url("icons/ic_instagram_hover.png");
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: center;
+
+    background-color: #8F2762;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+
+.twitter{
+    display: inline-block;
+    position: absolute;
+    width: 46px;
+    height: 46px;
+
+    border: 2px solid #E3E3E4;
+    box-sizing: border-box;
+    border-radius: 100%;
+    left: 53%;
+
+    background: url("icons/ic_twitter.png");
+    background-repeat: no-repeat;
+    background-size: 16px 13px;
+    background-position: center;
+}
+.twitter:hover{
+    background-image: url("icons/ic_twitter_hover.png");
+    background-repeat: no-repeat;
+    background-size: 16px 13px;
+    background-position: center;
+
+    background-color: #1DA1F2;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+.twitter:active{
+    background-image: url("icons/ic_twitter_hover.png");
+    background-repeat: no-repeat;
+    background-size: 16px 13px;
+    background-position: center;
+
+    background-color: #177FBF;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+
+.youtube{
+    display: inline-block;
+    position: absolute;
+    width: 46px;
+    height: 46px;
+
+    border: 2px solid #E3E3E4;
+    box-sizing: border-box;
+    border-radius: 100%;
+    left: 80%;
+
+    background: url("icons/ic_youtube.png");
+    background-repeat: no-repeat;
+    background-size: 16px 11px;
+    background-position: center;
+}
+.youtube:hover{
+    background-image: url("icons/ic_youtube_hover.png");
+    background-repeat: no-repeat;
+    background-size: 16px 11px;
+    background-position: center;
+
+    background-color: #FF0000;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+.youtube:active{
+    background-image: url("icons/ic_youtube_hover.png");
+    background-repeat: no-repeat;
+    background-size: 16px 11px;
+    background-position: center;
+
+    background-color: #CC0000;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+
+@media only screen and (max-width: 1080px) {
+
+    body{
+        height: 100%;
+    }
+    .base{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: transparent;
+        left: 0;
+        top: 0;
+
+        min-width: 250px;
+    }
+    .image{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .top-bar{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        background-color: #F2F5FA;
+        width: 100%;
+        height: 70px;
+
+    }
+    .pineapple-icon{
+        background-image: url("../styles/logo/logo_pineapple_mobile.png");
+        background-repeat: no-repeat;
+    }
+
+    .content{
+        position: absolute;
+        background-color: #F2F5FA;
+        width: 50%;
+        height: 500px;
+        top: 20%;
+        left: 25%;
+        min-width: 400px;
+        min-height: 500px;
+    }
+
+    .pineapple-icon{
+        margin-left: 30px;
+        margin-top: 10px;
+    }
+
+    .links{
+        margin-top: 10px;
+    }
+    #about{
+        margin-right: 20px;
+    }
+    #how-it-works{
+        margin-right: 20px;
+    }
+
+    .title{
+        position: absolute;
+        left: 10%;
+        top: 10%;
+        font-family: Georgia;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 34px;
+        color: #131821;
+    }
+    .sub-title{
+        position: absolute;
+        left: 10%;
+        top: 20%;
+        word-break: break-word;
+        width: 50%;
+        min-width: 300px;
+
+        font-family: Arial;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 26px;
+        color: #6A707B;
+    }
+
+    #email{
+        position: absolute;
+        top: 40%;
+        width: 90%;
+        left: 5%;
+    }
+
+    .icon-arrow{
+        position: absolute;
+        top: 45.5%;
+        left: 85%;
+    }
+
+    hr.line{
+        position: absolute;
+        top: 30%;
+    }
+
+    #error_message{
+        left: 10%;
+        top: 55%;
+    }
+
+    .TOS{
+        top:65%;
+    }
+
+    .social-networks{
+        position: absolute;
+        top: 80%;
+        left: 25%;
+        width: 50%;
+    }
+
+    .checkmark{
+        left: -20px;
+    }
+    .container input{
+        position: absolute;
+        left: -20px;
+    }
+
+    #error_message{
+        left: 5%;
+    }
+
+    .container{
+        left: 10%;
+        top: 65%;
+    }
+
+    .facebook{
+        left: 0;
+    }
+    .youtube{
+        left: 80%;
+    }
+    .instagram{
+        left: 27%;
+    }
+    .twitter{
+        left: 53%;
+    }
+
+}
+
+@media only screen and (max-width:600px){
+    .content{
+        left: 10%;
+    }
+    .social-networks{
+        left: 25%;
+    }
+
+    hr.line{
+        min-width: 280px;
+    }
+}
