@@ -2,7 +2,7 @@
 
 ### Web page is available by URL: http://webpagetechnicaltest.000webhostapp.com/
 ### To get acces to 3rd part of test(PHP table) use URL: http://webpagetechnicaltest.000webhostapp.com/emailList.php
-      By default email are invisible. Use one of sorts (by name or by date) to make them visible
+      By defaults email are invisible. Use one of sorting types (by name or by date) to make them visible
 
 
 #### To run web-page locally you have to change database parameters in file /library/DataBase.php
