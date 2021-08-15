@@ -3,6 +3,7 @@
 Web page is available by URL: http://webpagetechnicaltest.000webhostapp.com/
 To get acces to 3rd part of test(PHP table) use URL: http://webpagetechnicaltest.000webhostapp.com/emailList.php
 
+
 To run web-page locally you have to change database parameters in file /library/DataBase.php
 Requirements for table:
 Table should include 4 columns (id, address, date, domain)
