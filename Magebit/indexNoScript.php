@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
         validation("Please provide a valid e-mail address");
     }else if(empty($_POST['accept'])){
         validation("You must accept the terms and conditions");
-    }else if(str_contains($_POST['email'], '.co ')){
+    }else if(strcmp(substr($_POST['email'], strpos($_POST['email'], ".") + 1), 'co') == 0){
         validation("We are not accepting subscriptions from Colombia");
     }else{
         spl_autoload_register(function($class){
