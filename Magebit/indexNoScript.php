@@ -1,3 +1,28 @@
+<?php
+if(isset($_POST['submit'])){
+    require_once ("validateEmail.php");
+    if(empty($_POST['email'])){
+        validation("Email address is required");
+    }else if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+        validation("Please provide a valid e-mail address");
+    }else if(empty($_POST['accept'])){
+        validation("You must accept the terms and conditions");
+    }else if(str_contains($_POST['email'], '.co ')){
+        validation("We are not accepting subscriptions from Colombia");
+    }else{
+        spl_autoload_register(function($class){
+            require_once ('library/'.$class.'.php');
+        });
+        $emailAddress = new EmailClass();
+        $emailAddress->setAddress($_POST['email']);
+
+        $emailAddress->insertEmail();
+        header("Location: subscribe.html");
+    }
+}
+unset($_POST['email']);
+unset($_POST['accept']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,29 +56,8 @@
         </div>
         <div id="error_message" name="error_message">
             <?php
-            spl_autoload_register(function($class){
-                require_once ('library/'.$class.'.php');
-            });
-
-                if(isset($_POST['submit'])){
-                    if(empty($_POST['email'])){
-                        echo "Email address is required";
-                    }else if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-                        echo "Please provide a valid e-mail address";
-                    }else if(empty($_POST['accept'])){
-                        echo "You must accept the terms and conditions";
-                    }else if(str_contains($_POST['email'], '.co ')){
-                        echo "We are not accepting subscriptions from Colombia";
-                    }else{
-                        $emailAddress = new EmailClass();
-                        $emailAddress->setAddress($_POST['email']);
-
-                        $emailAddress->insertEmail();
-                        header('Location: subscribe.php');
-                    }
-                }
-                unset($_POST['email']);
-                unset($_POST['accept']);
+            require_once ("validateEmail.php");
+            echo printError();
             ?>
         </div>
         <div class="TOS">
@@ -61,7 +65,6 @@
                 <p class="i-agree-to">I agree to</p>
                 <p class="terms">terms of service</p>
             </span>
-
             <hr class="line">
         </div>
         <div class="social-networks">
