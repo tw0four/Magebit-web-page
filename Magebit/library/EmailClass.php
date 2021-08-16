@@ -92,31 +92,34 @@ class EmailClass
         $conn = $database->getConnection();
         $result = $conn->query($sql);
 
+        $array = array();
+
         if($result->num_rows > 0) {
             for($i=0; $i < $result->num_rows; $i++){
                 $row = $result->fetch_assoc();
                 $this->setAddress($row['address']);
 
-                $test1 = $this->getDomain();
+                $domain = $this->getDomain();
 
                 if($i == 0){
-                    $test2 = $test1;
+                    array_push($array, $domain);
                     $this->setAddress($row['address']);
                     $this->showDomains($result);
-                }
-                if(strcmp($test2,$test1) == 0){
-                    continue;
                 }else{
-                    $test2 = $test1;
-                    $this->setAddress($row['address']);
-                    $this->showDomains($result);
+                    if(in_array($domain, $array)){
+                        array_push($array, $domain);
+                    }else{
+                        array_push($array, $domain);
+                        $this->setAddress($row['address']);
+                        $this->showDomains($result);
+                    }
                 }
             }
         }
     }
 
     public function showDomains($result){
-        if($result != false && $result->num_rows > 0){
+        if($result !== false && $result->num_rows > 0){
             $domain = $this->getDomain();
             echo "<tr><th colspan='2'>
             <input type='checkbox' name='domain[]' value='$domain'>$domain
