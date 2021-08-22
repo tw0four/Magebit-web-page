@@ -9,7 +9,7 @@
         }
         .container{
             position: absolute;
-            height: 80%;
+            height: 100%;
             min-height: 600px;
             width: 75%;
             left: 15.5%;
@@ -18,11 +18,7 @@
         }
         table{
             position: absolute;
-            width: 80%;
-            height: auto;
-            border: 2px solid black;
-            left: 10%;
-            top: 35%;
+            left: 5%;
         }
 
         th{
@@ -57,10 +53,10 @@
     <table id="sort-table">
         <form method="post">
         <tr class="lines">
-            <th><input type="checkbox" name="by-name-asc">By Name ASC</th>
-            <th><input type="checkbox" name="by-name-desc">By Name DESC</th>
-            <th><input type="checkbox" name="by-date-asc">By Date ASC</th>
-            <th><input type="checkbox" name="by-date-desc">By Date DESC</th>
+            <th><input type="checkbox" name="by-name-asc" <?php if(isset($_POST['by-name-asc'])) echo "checked='checked'"; ?>>By Name ASC</th>
+            <th><input type="checkbox" name="by-name-desc" <?php if(isset($_POST['by-name-desc'])) echo "checked='checked'"; ?>>By Name DESC</th>
+            <th><input type="checkbox" name="by-date-asc"> <?php if(isset($_POST['by-date-asc'])) echo "checked='checked'"; ?>By Date ASC</th>
+            <th><input type="checkbox" name="by-date-desc" <?php if(isset($_POST['by-date-desc'])) echo "checked='checked'"; ?>>By Date DESC</th>
             <th><button type="submit" class="submit-button" name="submit" formaction="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" m></button> Submit</th>
             <th><button type="submit" class="delete-btn" name="delete" formaction="deleteEmails.php">DEL</button></th>
         </tr>
