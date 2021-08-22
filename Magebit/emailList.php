@@ -57,7 +57,7 @@
             <th><input type="checkbox" name="by-name-desc" <?php if(isset($_POST['by-name-desc'])) echo "checked='checked'"; ?>>By Name DESC</th>
             <th><input type="checkbox" name="by-date-asc"> <?php if(isset($_POST['by-date-asc'])) echo "checked='checked'"; ?>By Date ASC</th>
             <th><input type="checkbox" name="by-date-desc" <?php if(isset($_POST['by-date-desc'])) echo "checked='checked'"; ?>>By Date DESC</th>
-            <th><button type="submit" class="submit-button" name="submit" formaction="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" m></button> Submit</th>
+            <th><button type="submit" class="submit-button" name="submit" formaction="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"></button> Submit</th>
             <th><button type="submit" class="delete-btn" name="delete" formaction="deleteEmails.php">DEL</button></th>
         </tr>
             <tr>
