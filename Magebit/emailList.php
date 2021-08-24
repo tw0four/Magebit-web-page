@@ -70,7 +70,6 @@
                     require_once ('library/'.$class.'.php');
                 });
 
-                $database = new DataBase();
                 $email = new EmailClass();
 
                 $table = $email->getTable();
