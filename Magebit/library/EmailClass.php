@@ -1,6 +1,6 @@
 <?php
 
-class EmailClass
+class EmailClass extends DataBase
 {
     private $id, $email_address, $date, $domain;
     private $table = "emails";
@@ -41,11 +41,10 @@ class EmailClass
 
     public function insertEmail()
     {
-        $database = new DataBase();
         $table = $this->getTable();
 
         $sql = "INSERT INTO $table(address, domain) VALUES('" . $this->getAddress() . "','".$this->getDomain()."')";
-        $conn = $database->getConnection();
+        $conn = $this->getConnection();
         $conn->query($sql);
 
         $conn->close();
@@ -74,8 +73,8 @@ class EmailClass
 
     public function getEmails($sql)
     {
-        $database = new DataBase();
-        $conn = $database->getConnection();
+
+        $conn = $this->getConnection();
         $result = $conn->query($sql);
 
         if($result->num_rows > 0) {
@@ -94,8 +93,7 @@ class EmailClass
 
     public function getDomains($sql){
 
-        $database = new DataBase();
-        $conn = $database->getConnection();
+        $conn = $this->getConnection();
         $result = $conn->query($sql);
 
         $array = array();
@@ -135,15 +133,14 @@ class EmailClass
 
     public function deleteEmails(){
 
-        $database = new DataBase();
-        $conn = $database->getConnection();
+        $conn = $this->getConnection();
         $table = $this->getTable();
 
         foreach($_POST['checkbox'] as $id){
             $sql = "DELETE FROM $table WHERE id=".$id;
             $conn->query($sql);
         }
-        $conn->close();
+        $this->getEmails("SELECT * FROM $this->table");
     }
 
     public function showEmailList(){
@@ -271,7 +268,11 @@ class EmailClass
                                                 $this->getEmails("SELECT * FROM $this->table WHERE address ='" . $_POST['by-email'] . "'");
                                                 unset($_POST['by-email']);
                                             }else{
-                                                echo "Unable to filter";
+                                                if(empty($_POST['by-name-asc']) && empty($_POST['by-name-desc']) && empty($_POST['by-date-asc']) && empty($_POST['by-date-desc']) && empty($_POST['by-email']) && empty($_POST['domain'])){
+                                                    $this->getEmails("SELECT * FROM $this->table");
+                                                }else{
+                                                    echo "Unable to filter";
+                                                }
                                             }
                                         }
                                     }
