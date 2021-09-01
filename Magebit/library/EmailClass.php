@@ -1,6 +1,6 @@
 <?php
 
-class EmailClass extends DataBase
+class EmailClass
 {
     private $id, $email_address, $date, $domain;
     private $table = "emails";
@@ -41,10 +41,11 @@ class EmailClass extends DataBase
 
     public function insertEmail()
     {
+        $database = new DataBase();
         $table = $this->getTable();
 
         $sql = "INSERT INTO $table(address, domain) VALUES('" . $this->getAddress() . "','".$this->getDomain()."')";
-        $conn = $this->getConnection();
+        $conn = $database->getConnection();
         $conn->query($sql);
 
         $conn->close();
@@ -73,8 +74,8 @@ class EmailClass extends DataBase
 
     public function getEmails($sql)
     {
-
-        $conn = $this->getConnection();
+        $database = new DataBase();
+        $conn = $database->getConnection();
         $result = $conn->query($sql);
 
         if($result->num_rows > 0) {
@@ -93,7 +94,8 @@ class EmailClass extends DataBase
 
     public function getDomains($sql){
 
-        $conn = $this->getConnection();
+        $database = new DataBase();
+        $conn = $database->getConnection();
         $result = $conn->query($sql);
 
         $array = array();
@@ -133,7 +135,8 @@ class EmailClass extends DataBase
 
     public function deleteEmails(){
 
-        $conn = $this->getConnection();
+        $database = new DataBase();
+        $conn = $database->getConnection();
         $table = $this->getTable();
 
         foreach($_POST['checkbox'] as $id){
