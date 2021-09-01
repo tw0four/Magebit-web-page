@@ -77,6 +77,7 @@
 
                 if(isset($_POST['delete'])){
                     $email->deleteEmails();
+                    $email->showEmailList();
                 }
 
                 if (isset($_POST['submit'])){
