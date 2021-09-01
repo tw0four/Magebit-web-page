@@ -144,8 +144,6 @@ class EmailClass
             $conn->query($sql);
         }
         $conn->close();
-
-        header('Location: emailList.php');
     }
 
     public function showEmailList(){
