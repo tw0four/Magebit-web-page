@@ -55,7 +55,7 @@
         <tr class="lines">
             <th><input type="checkbox" name="by-name-asc" <?php if(isset($_POST['by-name-asc'])) echo "checked='checked'"; ?>>By Name ASC</th>
             <th><input type="checkbox" name="by-name-desc" <?php if(isset($_POST['by-name-desc'])) echo "checked='checked'"; ?>>By Name DESC</th>
-            <th><input type="checkbox" name="by-date-asc" <?php if(isset($_POST['by-date-asc'])) echo "checked='checked'"; ?>>By Date ASC</th>
+            <th><input type="checkbox" name="by-date-asc"> <?php if(isset($_POST['by-date-asc'])) echo "checked='checked'"; ?>By Date ASC</th>
             <th><input type="checkbox" name="by-date-desc" <?php if(isset($_POST['by-date-desc'])) echo "checked='checked'"; ?>>By Date DESC</th>
             <th><button type="submit" class="submit-button" name="submit" formaction="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"></button> Submit</th>
             <th><button type="submit" class="delete-btn" name="delete" formaction=" ">DEL</button></th>
@@ -70,6 +70,7 @@
                     require_once ('library/'.$class.'.php');
                 });
 
+                $database = new DataBase();
                 $email = new EmailClass();
 
                 $table = $email->getTable();
@@ -77,13 +78,13 @@
 
                 if(isset($_POST['delete'])){
                     $email->deleteEmails();
-                    $email->showEmailList();
+                }else{
+                    if (isset($_POST['submit'])){
+                        $email->showEmailList();
+                    }else{
+                        $email->showEmailList();
+                    }
                 }
-
-                if (isset($_POST['submit'])){
-                    $email->showEmailList();
-                }
-
             ?>
         </form>
     </table>
